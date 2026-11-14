@@ -1,4 +1,12 @@
 {
   "id": "5vesfhcayy",
-  "accessMode": "external"
+  "accessMode": "external",
+  "authentication": {
+    "signup": "open",
+    "authenticationMethods": {
+      "emailSignIn": true,
+      "googleSignIn": false,
+      "sso": false
+    }
+  }
 }
