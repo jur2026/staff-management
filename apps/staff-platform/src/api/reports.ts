@@ -14,9 +14,17 @@ export default createEndpoint({
     const me = await requireMe(context, 'reports.view');
     const dept = me.perms.has('scope.all') ? input.departmentId || null : me.departmentId || '00000000-0000-0000-0000-000000000000';
     // member ids in scope as a CTE
-    const scopeCte = `WITH sm AS (SELECT m.id, m."fullName", m."status" FROM "Members" m ${dept ? `JOIN "DepartmentsMembers" dm ON dm."membersId" = m.id AND dm."departmentsId" = $3` : ''})`;
+    const scopeCte = `WITH sm AS (SELECT m.id, m."fullName", m."status" FROM "Members" m ${dept ? `JOIN "DepartmentsMembers" dm ON dm."membersId" = m.id AND dm."departmentsId" = $3::uuid` : ''} WHERE $1::date IS NOT NULL AND $2::date IS NOT NULL)`;
     const p = dept ? [input.from, input.to, dept] : [input.from, input.to];
-    const q = (sql: string) => zite.sql({ query: `${scopeCte} ${sql}`, params: p });
+    // Pass exactly as many params as the highest $N the final query references.
+    const q = (sql: string) => {
+      const query = `${scopeCte} ${sql}`;
+      const max = Math.max(0, ...[...query.matchAll(/\$(\d+)/g)].map((m) => Number(m[1])));
+      return zite.sql({ query, params: p.slice(0, max) }).catch((e) => {
+        console.error('reports query failed', { error: String(e), query });
+        throw e;
+      });
+    };
 
     const [members, hours, absence, tasks, shifts, absByCat, hoursByDay, complaints] = await Promise.all([
       q(`SELECT "status", COUNT(*)::int AS c FROM sm WHERE $1::text IS NOT NULL AND $2::text IS NOT NULL GROUP BY "status"`),
