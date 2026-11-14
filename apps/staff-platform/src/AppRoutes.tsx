@@ -15,7 +15,8 @@ import ReviewsView from './pages/Reviews';
 import AuditView from './pages/Audit';
 import CustomPage from './pages/CustomPage';
 import PanelPage from './pages/PanelPage';
-import Developer from './pages/admin/Developer';
+import DevPanel from './pages/developer/DevPanel';
+import Support from './pages/Support';
 import type { ModuleKey } from './lib/permissions';
 
 export default function AppRoutes() {
@@ -37,7 +38,8 @@ export default function AppRoutes() {
       <Route path="/meldingen" element={<Notifications />} />
       <Route path="/audit" element={<AuditView />} />
       <Route path="/pagina/:id" element={<CustomPage />} />
-      <Route path="/developer" element={can('developer.view') ? <Developer /> : <Navigate to="/" replace />} />
+      <Route path="/developer/*" element={can('developer.view') ? <DevPanel /> : <Navigate to="/" replace />} />
+      <Route path="/support" element={gate('support', <Support />)} />
       {(['beheer', 'bestuur', 'management'] as const).map((p) => (
         <Route key={p} path={`/${p}/:section?`} element={<PanelPage panel={p} />} />
       ))}

@@ -1,6 +1,6 @@
 import {
   LayoutDashboard, CalendarOff, MessageSquareWarning, Clock, CalendarDays, ListChecks, BookOpen, Megaphone, MessagesSquare, Bell, GraduationCap, ScrollText, User,
-  Users, UserCog, ShieldCheck, KeyRound, Building, Gavel, BarChart3, Settings, PanelsTopLeft, CalendarCheck, Handshake, FileText, Code2,
+  Users, UserCog, ShieldCheck, KeyRound, Building, Gavel, BarChart3, Settings, PanelsTopLeft, CalendarCheck, Handshake, FileText, Code2, LifeBuoy,
   type LucideIcon,
 } from 'lucide-react';
 import type { ModuleKey, Perm } from './permissions';
@@ -19,6 +19,7 @@ export const STAFF_NAV: NavItem[] = [
   { to: '/klachten', label: 'Klachten', icon: MessageSquareWarning, module: 'complaints' },
   { to: '/ontwikkeling', label: 'Ontwikkeling & gesprekken', icon: GraduationCap, module: 'reviews' },
   { to: '/audit', label: 'Auditlogs', icon: ScrollText },
+  { to: '/support', label: 'Support', icon: LifeBuoy, module: 'support' },
   { to: '/meldingen', label: 'Notificaties', icon: Bell },
   { to: '/profiel', label: 'Mijn profiel', icon: User },
 ];
@@ -57,4 +58,4 @@ export const PANELS = {
 };
 export type PanelKey = keyof typeof PANELS;
 
-export const DEV_NAV: NavItem = { to: '/developer', label: 'Developer-console', icon: Code2 };
+export const DEV_NAV: NavItem = { to: '/developer', label: 'Developer Panel', icon: Code2 };

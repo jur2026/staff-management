@@ -9,6 +9,8 @@ import type { default as _ComplaintsEp } from '../src/api/complaints';
 import type { default as _ContentEp } from '../src/api/content';
 import type { default as _DashboardEp } from '../src/api/dashboard';
 import type { default as _DecisionsEp } from '../src/api/decisions';
+import type { default as _DevItemsEp } from '../src/api/devItems';
+import type { default as _DevTestsEp } from '../src/api/devTests';
 import type { default as _DeveloperInfoEp } from '../src/api/developerInfo';
 import type { default as _GetMeEp } from '../src/api/getMe';
 import type { default as _GetMemberDossierEp } from '../src/api/getMemberDossier';
@@ -23,6 +25,7 @@ import type { default as _SaveMemberEp } from '../src/api/saveMember';
 import type { default as _SaveOrgEp } from '../src/api/saveOrg';
 import type { default as _ScheduleEp } from '../src/api/schedule';
 import type { default as _SettingsEp } from '../src/api/settings';
+import type { default as _SupportEp } from '../src/api/support';
 import type { default as _TasksEp } from '../src/api/tasks';
 import type { default as _TimeEntriesEp } from '../src/api/timeEntries';
 import type { default as _UpdateProfileEp } from '../src/api/updateProfile';
@@ -61,6 +64,16 @@ type _DecisionsCfg = typeof _DecisionsEp;
 export type DecisionsInputType = NonNullable<_DecisionsCfg['inputSchema']> extends { _input: infer I } ? I : Parameters<_DecisionsCfg['execute']>[0]['input'];
 export type DecisionsOutputType = Awaited<ReturnType<_DecisionsCfg['execute']>>;
 export const decisions = createCaller<DecisionsInputType, DecisionsOutputType>('decisions');
+
+type _DevItemsCfg = typeof _DevItemsEp;
+export type DevItemsInputType = NonNullable<_DevItemsCfg['inputSchema']> extends { _input: infer I } ? I : Parameters<_DevItemsCfg['execute']>[0]['input'];
+export type DevItemsOutputType = Awaited<ReturnType<_DevItemsCfg['execute']>>;
+export const devItems = createCaller<DevItemsInputType, DevItemsOutputType>('devItems');
+
+type _DevTestsCfg = typeof _DevTestsEp;
+export type DevTestsInputType = NonNullable<_DevTestsCfg['inputSchema']> extends { _input: infer I } ? I : Parameters<_DevTestsCfg['execute']>[0]['input'];
+export type DevTestsOutputType = Awaited<ReturnType<_DevTestsCfg['execute']>>;
+export const devTests = createCaller<DevTestsInputType, DevTestsOutputType>('devTests');
 
 type _DeveloperInfoCfg = typeof _DeveloperInfoEp;
 export type DeveloperInfoInputType = NonNullable<_DeveloperInfoCfg['inputSchema']> extends { _input: infer I } ? I : Parameters<_DeveloperInfoCfg['execute']>[0]['input'];
@@ -132,6 +145,11 @@ export type SettingsInputType = NonNullable<_SettingsCfg['inputSchema']> extends
 export type SettingsOutputType = Awaited<ReturnType<_SettingsCfg['execute']>>;
 export const settings = createCaller<SettingsInputType, SettingsOutputType>('settings');
 
+type _SupportCfg = typeof _SupportEp;
+export type SupportInputType = NonNullable<_SupportCfg['inputSchema']> extends { _input: infer I } ? I : Parameters<_SupportCfg['execute']>[0]['input'];
+export type SupportOutputType = Awaited<ReturnType<_SupportCfg['execute']>>;
+export const support = createCaller<SupportInputType, SupportOutputType>('support');
+
 type _TasksCfg = typeof _TasksEp;
 export type TasksInputType = NonNullable<_TasksCfg['inputSchema']> extends { _input: infer I } ? I : Parameters<_TasksCfg['execute']>[0]['input'];
 export type TasksOutputType = Awaited<ReturnType<_TasksCfg['execute']>>;
@@ -156,6 +174,8 @@ export const api = {
   content,
   dashboard,
   decisions,
+  devItems,
+  devTests,
   developerInfo,
   getMe,
   getMemberDossier,
@@ -170,6 +190,7 @@ export const api = {
   saveOrg,
   schedule,
   settings,
+  support,
   tasks,
   timeEntries,
   updateProfile,

@@ -7,7 +7,9 @@ Een digitaal hoofdkantoor voor medewerkers en leidinggevenden. Staffleden regele
 - **Management**: dagelijkse organisatie van de eigen afdeling.
 - **Bestuur**: organisatiebreed toezicht, besluitenregister en personeelsbeleid.
 - **Beheer**: volledige controle over gebruikers, rollen, rechten, modules, pagina's en instellingen.
-- **Developer**: aparte technische console zonder toegang tot personeelsgegevens.
+- **Developer**: eigen Developer Panel (systeemmonitor, bug tracker, technische taken, testing center, technische documentatie) zonder toegang tot personeelsgegevens. Alleen Beheer kan de Developerrol toekennen of intrekken.
+
+**Support**: iedereen kan interne supporttickets aanmaken; Beheer en Bestuur behandelen ze. Extern contact: support@bambooland.aclclouds.online.
 
 **Toegang**: alleen op uitnodiging. Beheer, Bestuur of Management maakt een eenmalige toegangscode aan. De medewerker logt in met zijn e-mailadres, voert de code in en blijft daarna ingelogd. De allereerste gebruiker wordt automatisch Beheer.
 

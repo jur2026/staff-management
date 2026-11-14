@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createEndpoint } from 'zitejs/backend';
 import { zite } from 'zitejs/db';
 import { PERM_KEYS } from '../lib/permissions';
-import { audit, fail, first, requireMe } from '../server/core';
+import { assertCanGrant, audit, fail, first, parseJson, requireMe } from '../server/core';
 
 export default createEndpoint({
   description: 'Maakt, wijzigt of verwijdert rollen en afdelingen',
@@ -34,10 +34,13 @@ export default createEndpoint({
       if (input.id) {
         const r = await zite.roles.findOne({ id: input.id });
         if (!r) throw fail('NOT_FOUND', 'Rol niet gevonden.');
+        assertCanGrant(me, [...perms, ...parseJson<string[]>(r.permissions, [])]);
+        if ((r.rank ?? 0) >= 100 && !perms.includes('roles.manage')) throw fail('BAD_REQUEST', 'De Beheer-rol moet rollenbeheer behouden.');
         if (r.id === me.roleId && !perms.includes('roles.manage')) throw fail('BAD_REQUEST', 'Je kunt het rollenbeheer niet bij je eigen rol weghalen.');
         await zite.roles.update({ id: r.id, record: { name: r.isSystem ? r.name : input.name, description: input.description || null, rank: input.rank ?? r.rank, permissions: JSON.stringify(perms) } });
         await audit(me, `Rol aangepast: ${r.name}`, 'Rechten', r.id, perms.join(', '));
       } else {
+        assertCanGrant(me, perms);
         const r = await zite.roles.create({ record: { name: input.name!, description: input.description || null, rank: input.rank ?? 20, permissions: JSON.stringify(perms), isSystem: false } });
         await audit(me, `Rol aangemaakt: ${input.name}`, 'Rechten', r.id, perms.join(', '));
       }

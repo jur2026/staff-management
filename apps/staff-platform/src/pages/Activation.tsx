@@ -50,6 +50,7 @@ export default function Activation({ bootstrap, platformName, email, onDone }: {
           <Button className="w-full" disabled={busy}>{busy && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}{bootstrap ? 'Start als Beheer' : 'Activeren'}</Button>
           <Button type="button" variant="ghost" className="w-full" onClick={() => logout()}>Ander account gebruiken</Button>
         </form>
+        <p className="mt-4 text-center text-xs text-muted-foreground">Wachtwoord vergeten of problemen met inloggen?<br />Neem contact op met <a className="font-semibold text-primary underline" href="mailto:support@bambooland.aclclouds.online">support@bambooland.aclclouds.online</a>.</p>
       </div>
     </div>
   );

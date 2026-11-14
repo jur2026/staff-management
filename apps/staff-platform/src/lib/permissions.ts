@@ -16,12 +16,21 @@ export const PERMISSIONS = {
   'audit.view': 'Auditlogs bekijken en inzageverzoeken behandelen',
   'settings.manage': 'Systeeminstellingen, modules en onderhoud',
   'pages.manage': 'Pagina- en panelbeheer',
-  'developer.view': 'Developer-console (technische informatie)',
+  'developer.view': 'Developer Panel openen (systeemmonitor, technische logs)',
+  'dev.bugs': 'Developer: bugs registreren en beheren',
+  'dev.tasks': 'Developer: technische taken beheren',
+  'dev.tests': 'Developer: tests uitvoeren in Testing Center',
+  'dev.docs': 'Developer: technische documentatie beheren',
+  'support.handle': 'Supporttickets behandelen',
   'scope.all': 'Alle afdelingen inzien (anders alleen eigen afdeling)',
 } as const;
 
 export type Perm = keyof typeof PERMISSIONS;
 export const PERM_KEYS = Object.keys(PERMISSIONS) as Perm[];
+
+/** Rights only the Beheer role (rank 100) may hand out — via roles or individual overrides. */
+export const BEHEER_ONLY_PERMS: Perm[] = ['roles.manage', 'settings.manage', 'pages.manage', 'developer.view', 'dev.bugs', 'dev.tasks', 'dev.tests', 'dev.docs'];
+export const BEHEER_RANK = 100;
 
 export const MODULES = {
   absence: 'Afwezigheid & verlof',
@@ -34,10 +43,11 @@ export const MODULES = {
   announcements: 'Mededelingen',
   reviews: 'Gesprekken & evaluaties',
   decisions: 'Besluitenregister',
+  support: 'Supporttickets',
 } as const;
 export type ModuleKey = keyof typeof MODULES;
 
-export const AUDIT_CATEGORIES = ['Gebruikers', 'Rechten', 'Toegangscodes', 'Afwezigheid', 'Klachten', 'Uren', 'Roosters', 'Taken', 'Documenten', 'Communicatie', 'Gesprekken', 'Besluiten', 'Instellingen', 'Systeem'] as const;
+export const AUDIT_CATEGORIES = ['Gebruikers', 'Rechten', 'Toegangscodes', 'Afwezigheid', 'Klachten', 'Uren', 'Roosters', 'Taken', 'Documenten', 'Communicatie', 'Gesprekken', 'Besluiten', 'Instellingen', 'Systeem', 'Support', 'Developer'] as const;
 
 export const NOTIFICATION_TYPES = {
   absence: 'Afwezigheid & verlof',
@@ -50,4 +60,5 @@ export const NOTIFICATION_TYPES = {
   announcement: 'Mededelingen',
   audit: 'Auditverzoeken',
   account: 'Account',
+  support: 'Supporttickets',
 } as const;

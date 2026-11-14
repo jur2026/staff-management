@@ -83,6 +83,9 @@
 //   "MembersNotifications" — columns: "membersId", "notificationsId" (joins "Members" and "Notifications")
 //   "AuditAccessRequestsMembers" — columns: "auditAccessRequestsId", "membersId" (joins "Audit Access Requests" and "Members")
 //   "MembersReviews" — columns: "membersId", "reviewsId" (joins "Members" and "Reviews")
+//   "DeveloperItemsMembers" — columns: "developerItemsId", "membersId" (joins "Developer Items" and "Members")
+//   "MembersSupportTickets" — columns: "membersId", "supportTicketsId" (joins "Members" and "Support Tickets")
+//   "SupportMessagesSupportTickets" — columns: "supportMessagesId", "supportTicketsId" (joins "Support Messages" and "Support Tickets")
 import { createTableClient, createSqlClient, createAuthClient } from 'zitejs/runtime';
 
 /** An attachment as returned when reading a record. */
@@ -213,6 +216,10 @@ export type MembersRecordType = {
   auditAccessRequests?: string | string[];
   /** Links to reviews ("Reviews"). "Reviews" */
   reviews?: string | string[];
+  /** Links to developerItems ("Developer Items"). "Developer Items" */
+  developerItems?: string | string[];
+  /** Links to supportTickets ("Support Tickets"). "Support Tickets" */
+  supportTickets?: string | string[];
 };
 
 /** What you may write when creating or updating a record in the "Members" table. */
@@ -248,6 +255,8 @@ export type MembersRecordInput = {
   notifications: string | string[] | null;
   auditAccessRequests: string | string[] | null;
   reviews: string | string[] | null;
+  developerItems: string | string[] | null;
+  supportTickets: string | string[] | null;
 };
 
 /** A record in the "Access Codes" table, as it is read back. */
@@ -800,6 +809,115 @@ export type PagesRecordInput = {
   updatedBy: string | null;
 };
 
+/** A record in the "Developer Items" table, as it is read back. */
+export type DeveloperItemsRecordType = {
+  id: string;
+  /** Primary field. "Title" */
+  title?: string;
+  kind?: "Bug" | "Taak" | "Documentatie" | string;
+  description?: string;
+  status?: "Nieuw" | "Te doen" | "Bezig" | "In controle" | "Afgerond" | "Gesloten" | string;
+  priority?: "Laag" | "Normaal" | "Hoog" | "Kritiek" | string;
+  /** Links to members ("Members"). "Assignee" */
+  assignee?: string | string[];
+  reporter?: string;
+  component?: string;
+  /** Read-only. "Created On". Auto-set when record was created (ISO 8601) */
+  createdOn?: string;
+  /** Read-only. "Updated On". Auto-set when record was last modified (ISO 8601) */
+  updatedOn?: string;
+};
+
+/** What you may write when creating or updating a record in the "Developer Items" table. */
+export type DeveloperItemsRecordInput = {
+  title: string | null;
+  kind: "Bug" | "Taak" | "Documentatie" | string | null;
+  description: string | null;
+  status: "Nieuw" | "Te doen" | "Bezig" | "In controle" | "Afgerond" | "Gesloten" | string | null;
+  priority: "Laag" | "Normaal" | "Hoog" | "Kritiek" | string | null;
+  assignee: string | string[] | null;
+  reporter: string | null;
+  component: string | null;
+};
+
+/** A record in the "Test Results" table, as it is read back. */
+export type TestResultsRecordType = {
+  id: string;
+  /** Primary field. "Test Name" */
+  testName?: string;
+  result?: "Geslaagd" | "Mislukt" | string;
+  details?: string;
+  /** "Duration Ms". 1 decimal places, format: local (e.g. 1,000,000.50) */
+  durationMs?: number;
+  runId?: string;
+  runBy?: string;
+  /** Read-only. "Created On". Auto-set when record was created (ISO 8601) */
+  createdOn?: string;
+};
+
+/** What you may write when creating or updating a record in the "Test Results" table. */
+export type TestResultsRecordInput = {
+  testName: string | null;
+  result: "Geslaagd" | "Mislukt" | string | null;
+  details: string | null;
+  durationMs: string | number | null;
+  runId: string | null;
+  runBy: string | null;
+};
+
+/** A record in the "Support Tickets" table, as it is read back. */
+export type SupportTicketsRecordType = {
+  id: string;
+  /** Primary field. "Subject" */
+  subject?: string;
+  category?: "Inloggen" | "Accountproblemen" | "Wachtwoordproblemen" | "Websiteproblemen" | "Technische problemen" | "Rechten en toegang" | "Overige vragen" | string;
+  status?: "Open" | "In behandeling" | "Wacht op reactie" | "Opgelost" | "Gesloten" | string;
+  /** Links to members ("Members"). "Requester" */
+  requester?: string | string[];
+  description?: string;
+  attachments?: ZiteAttachment[];
+  /** Read-only. "Created On". Auto-set when record was created (ISO 8601) */
+  createdOn?: string;
+  /** Read-only. "Updated On". Auto-set when record was last modified (ISO 8601) */
+  updatedOn?: string;
+  /** Links to supportMessages ("Support Messages"). "Support Messages" */
+  supportMessages?: string | string[];
+};
+
+/** What you may write when creating or updating a record in the "Support Tickets" table. */
+export type SupportTicketsRecordInput = {
+  subject: string | null;
+  category: "Inloggen" | "Accountproblemen" | "Wachtwoordproblemen" | "Websiteproblemen" | "Technische problemen" | "Rechten en toegang" | "Overige vragen" | string | null;
+  status: "Open" | "In behandeling" | "Wacht op reactie" | "Opgelost" | "Gesloten" | string | null;
+  requester: string | string[] | null;
+  description: string | null;
+  attachments: ZiteAttachmentInput[] | ZiteAttachmentInput | null;
+  supportMessages: string | string[] | null;
+};
+
+/** A record in the "Support Messages" table, as it is read back. */
+export type SupportMessagesRecordType = {
+  id: string;
+  /** Primary field. "Body" */
+  body?: string;
+  /** Links to supportTickets ("Support Tickets"). "Ticket" */
+  ticket?: string | string[];
+  author?: string;
+  authorId?: string;
+  internal?: boolean;
+  /** Read-only. "Created On". Auto-set when record was created (ISO 8601) */
+  createdOn?: string;
+};
+
+/** What you may write when creating or updating a record in the "Support Messages" table. */
+export type SupportMessagesRecordInput = {
+  body: string | null;
+  ticket: string | string[] | null;
+  author: string | null;
+  authorId: string | null;
+  internal: string | boolean | null;
+};
+
 export interface ZiteAuthUser {
   id: string;
   name: string;
@@ -833,6 +951,10 @@ export const zite = {
   decisions: createTableClient<DecisionsRecordType, DecisionsRecordInput>('Decisions'), // "Decisions"
   settings: createTableClient<SettingsRecordType, SettingsRecordInput>('Settings'), // "Settings"
   pages: createTableClient<PagesRecordType, PagesRecordInput>('Pages'), // "Pages"
+  developerItems: createTableClient<DeveloperItemsRecordType, DeveloperItemsRecordInput>('DeveloperItems'), // "Developer Items"
+  testResults: createTableClient<TestResultsRecordType, TestResultsRecordInput>('TestResults'), // "Test Results"
+  supportTickets: createTableClient<SupportTicketsRecordType, SupportTicketsRecordInput>('SupportTickets'), // "Support Tickets"
+  supportMessages: createTableClient<SupportMessagesRecordType, SupportMessagesRecordInput>('SupportMessages'), // "Support Messages"
   sql: createSqlClient(),
   auth: createAuthClient<ZiteAuthUser>(),
 };

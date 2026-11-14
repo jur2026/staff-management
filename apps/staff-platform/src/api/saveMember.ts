@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { createEndpoint } from 'zitejs/backend';
 import { zite } from 'zitejs/db';
-import { audit, fail, first, notify, requireMe, type Me } from '../server/core';
+import { assertCanGrant, assertNotLastBeheer, audit, fail, first, notify, parseJson, requireMe, type Me } from '../server/core';
 
 async function guardTarget(me: Me, id: string) {
   if (id === me.id) throw fail('FORBIDDEN', 'Je kunt je eigen account of rechten niet op deze manier wijzigen.');
@@ -41,6 +41,7 @@ export default createEndpoint({
     if (input.action === 'bulkStatus') {
       for (const id of input.ids || []) {
         const m = await guardTarget(me, id);
+        if (input.status !== 'Actief') await assertNotLastBeheer(id);
         await zite.members.update({ id, record: { status: input.status! } });
         await audit(me, `Status gewijzigd naar ${input.status}`, 'Gebruikers', id, m.fullName || '');
       }
@@ -55,6 +56,9 @@ export default createEndpoint({
         const role = await zite.roles.findOne({ id: d.roleId });
         if (!role) throw fail('BAD_REQUEST', 'Rol bestaat niet.');
         if ((role.rank ?? 0) >= me.rank && !me.perms.has('roles.manage')) throw fail('FORBIDDEN', 'Je kunt geen rol toekennen die gelijk of hoger is dan je eigen rol.');
+        const oldRole = first(m.role) ? await zite.roles.findOne({ id: first(m.role)! }) : undefined;
+        assertCanGrant(me, [...parseJson<string[]>(role.permissions, []), ...parseJson<string[]>(oldRole?.permissions, [])]);
+        if ((role.rank ?? 0) < (oldRole?.rank ?? 0)) await assertNotLastBeheer(id);
         await audit(me, `Rol gewijzigd naar ${role.name}`, 'Rechten', id, name);
         await notify([id], 'account', 'Je rol is gewijzigd', `Je hebt nu de rol ${role.name}.`);
       }
@@ -76,16 +80,20 @@ export default createEndpoint({
       });
       await audit(me, 'Medewerkergegevens bijgewerkt', 'Gebruikers', id, name);
     } else if (input.action === 'status') {
+      if (input.status !== 'Actief') await assertNotLastBeheer(id);
       await zite.members.update({ id, record: { status: input.status! } });
       await audit(me, `Status gewijzigd naar ${input.status}`, 'Gebruikers', id, name);
     } else if (input.action === 'overrides') {
       if (!me.perms.has('roles.manage')) throw fail('FORBIDDEN', 'Alleen Beheer kan rechten per gebruiker instellen.');
+      assertCanGrant(me, [...(input.overrides?.grant || []), ...(input.overrides?.deny || []), ...Object.values(parseJson<{ grant?: string[]; deny?: string[] }>(m.permissionOverrides, {})).flat()]);
       await zite.members.update({ id, record: { permissionOverrides: JSON.stringify(input.overrides) } });
       await audit(me, 'Individuele rechten aangepast', 'Rechten', id, JSON.stringify(input.overrides));
     } else if (input.action === 'resetAccess') {
+      await assertNotLastBeheer(id);
       await zite.members.update({ id, record: { user: null } });
       await audit(me, 'Accounttoegang gereset (herstel via nieuwe code)', 'Gebruikers', id, name);
     } else if (input.action === 'delete') {
+      await assertNotLastBeheer(id);
       await zite.members.delete({ id });
       await audit(me, 'Medewerker verwijderd', 'Gebruikers', id, name);
     }

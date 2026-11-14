@@ -63,6 +63,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   const [mobile, setMobile] = useState(false);
   const [dark, setDark] = useState(document.documentElement.classList.contains('dark'));
   const loc = useLocation();
+  if (loc.pathname.startsWith('/developer')) return <>{children}</>;
   const toggleTheme = () => {
     const d = !dark;
     document.documentElement.classList.toggle('dark', d);

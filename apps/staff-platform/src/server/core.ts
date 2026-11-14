@@ -1,6 +1,26 @@
 import { zite } from 'zitejs/db';
 import { ZiteError } from 'zitejs/backend';
-import type { Perm } from '../lib/permissions';
+import { BEHEER_ONLY_PERMS, BEHEER_RANK, type Perm } from '../lib/permissions';
+
+export const isBeheer = (me: Me) => me.rank >= BEHEER_RANK && me.perms.has('roles.manage');
+
+/** Throws when `me` tries to hand out rights that only Beheer may grant. */
+export function assertCanGrant(me: Me, perms: string[]) {
+  if (isBeheer(me)) return;
+  const blocked = perms.filter((p) => (BEHEER_ONLY_PERMS as string[]).includes(p));
+  if (blocked.length) throw fail('FORBIDDEN', `Alleen Beheer mag deze rechten toekennen of intrekken: ${blocked.join(', ')}`);
+}
+
+/** Prevents removing/demoting the last active Beheer account. */
+export async function assertNotLastBeheer(memberId: string) {
+  const { records: roles } = await zite.roles.findAll({ limit: 200 });
+  const beheerRoles = roles.filter((r) => (r.rank ?? 0) >= BEHEER_RANK).map((r) => r.id);
+  const m = await zite.members.findOne({ id: memberId });
+  if (!m || !beheerRoles.includes(first(m.role) || '')) return;
+  const { records } = await zite.members.findAll({ filters: { status: 'Actief' }, limit: 2000 });
+  const others = records.filter((x) => x.id !== memberId && beheerRoles.includes(first(x.role) || ''));
+  if (!others.length) throw fail('FORBIDDEN', 'Dit is de laatste actieve Beheer-account en kan niet worden verwijderd, geblokkeerd of gedegradeerd.');
+}
 
 export const first = (v?: string | string[] | null) => (Array.isArray(v) ? v[0] : v || undefined) as string | undefined;
 export const many = (v?: string | string[] | null): string[] => (Array.isArray(v) ? v : v ? [v] : []);

@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { createEndpoint } from 'zitejs/backend';
 import { zite } from 'zitejs/db';
-import { audit, fail, first, requireMe } from '../server/core';
+import { assertCanGrant, audit, fail, first, notify, holdersOf, parseJson, requireMe } from '../server/core';
 
 const genCode = () => {
   const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
@@ -39,6 +39,8 @@ export default createEndpoint({
       const role = await zite.roles.findOne({ id: d.roleId });
       if (!role) throw fail('BAD_REQUEST', 'Kies een geldige rol.');
       if ((role.rank ?? 0) >= me.rank && !me.perms.has('roles.manage')) throw fail('FORBIDDEN', 'Je kunt geen code maken voor een gelijke of hogere rol.');
+      assertCanGrant(me, parseJson<string[]>(role.permissions, []));
+      await notify((await holdersOf('codes.manage')).filter((x) => x !== me.id), 'account', 'Nieuwe activatiecode aangemaakt', `${me.name} heeft een code aangemaakt voor ${d.fullName} (${role.name}).`, '/beheer/codes');
       const code = genCode();
       const c = await zite.accessCodes.create({
         record: { code, fullName: d.fullName, email: d.email ? d.email.toLowerCase() : null, jobTitle: d.jobTitle || null, role: [role.id], department: d.departmentId ? [d.departmentId] : null, expiresAt: new Date(Date.now() + d.validDays * 86400000).toISOString(), status: 'Actief', createdBy: me.name },
