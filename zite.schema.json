@@ -1,3 +1,3031 @@
 {
-  "tables": []
+  "tables": [
+    {
+      "id": "toomm1cyDHm",
+      "sdkName": "departments",
+      "name": "Departments",
+      "primaryFieldId": "f9JeQUBrKmt",
+      "fields": [
+        {
+          "id": "f9JeQUBrKmt",
+          "sdkName": "name",
+          "definition": {
+            "name": "Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f8mEs18nHxD",
+          "sdkName": "description",
+          "definition": {
+            "name": "Description",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fdwLv4xpFpH",
+          "sdkName": "members",
+          "definition": {
+            "name": "Members",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tjsmbQhdYsV",
+              "isInverse": true,
+              "allowMultiple": true,
+              "inverseFieldId": "fr3vJCV9DLQ"
+            }
+          }
+        },
+        {
+          "id": "f4aJhBnBjsT",
+          "sdkName": "accessCodes",
+          "definition": {
+            "name": "Access Codes",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tpS1Ghn63tC",
+              "isInverse": true,
+              "allowMultiple": true,
+              "inverseFieldId": "fnzKeeBXaDE"
+            }
+          }
+        },
+        {
+          "id": "f6ifm8nJY4A",
+          "sdkName": "shifts",
+          "definition": {
+            "name": "Shifts",
+            "type": "linked_record",
+            "template": {
+              "tableId": "t4DdAqYg74Q",
+              "isInverse": true,
+              "allowMultiple": true,
+              "inverseFieldId": "fi5zE2PUkCt"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tbj8PKFTrCL",
+      "sdkName": "roles",
+      "name": "Roles",
+      "primaryFieldId": "f1qME92UWPo",
+      "fields": [
+        {
+          "id": "f1qME92UWPo",
+          "sdkName": "name",
+          "definition": {
+            "name": "Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fidrrXbLJxm",
+          "sdkName": "rank",
+          "definition": {
+            "name": "Rank",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 1
+            }
+          }
+        },
+        {
+          "id": "fvgnjmENVeK",
+          "sdkName": "permissions",
+          "definition": {
+            "name": "Permissions",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f8sbXcKcMNp",
+          "sdkName": "description",
+          "definition": {
+            "name": "Description",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fwM69P27Jfb",
+          "sdkName": "isSystem",
+          "definition": {
+            "name": "Is System",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "fbt8FV3X1as",
+          "sdkName": "members",
+          "definition": {
+            "name": "Members",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tjsmbQhdYsV",
+              "isInverse": true,
+              "allowMultiple": true,
+              "inverseFieldId": "fb3biBGU2hX"
+            }
+          }
+        },
+        {
+          "id": "frdxfi4PBc6",
+          "sdkName": "accessCodes",
+          "definition": {
+            "name": "Access Codes",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tpS1Ghn63tC",
+              "isInverse": true,
+              "allowMultiple": true,
+              "inverseFieldId": "fmPyHJoeSPz"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tjsmbQhdYsV",
+      "sdkName": "members",
+      "name": "Members",
+      "primaryFieldId": "fcUEVesKy57",
+      "fields": [
+        {
+          "id": "fcUEVesKy57",
+          "sdkName": "fullName",
+          "definition": {
+            "name": "Full Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fuC4otPHU15",
+          "sdkName": "user",
+          "definition": {
+            "name": "User",
+            "type": "user",
+            "template": {
+              "internalOnly": false,
+              "allowMultiple": false,
+              "deleteRowWhenUserDeleted": true
+            }
+          }
+        },
+        {
+          "id": "fsJzWfWiv1P",
+          "sdkName": "email",
+          "definition": {
+            "name": "Email",
+            "type": "email",
+            "template": {}
+          }
+        },
+        {
+          "id": "fihE3tiRX58",
+          "sdkName": "username",
+          "definition": {
+            "name": "Username",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fwbGkLA5Nvt",
+          "sdkName": "jobTitle",
+          "definition": {
+            "name": "Job Title",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fr3vJCV9DLQ",
+          "sdkName": "department",
+          "definition": {
+            "name": "Department",
+            "type": "linked_record",
+            "template": {
+              "tableId": "toomm1cyDHm",
+              "isInverse": false,
+              "allowMultiple": true,
+              "inverseFieldId": "fdwLv4xpFpH"
+            }
+          }
+        },
+        {
+          "id": "fb3biBGU2hX",
+          "sdkName": "role",
+          "definition": {
+            "name": "Role",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tbj8PKFTrCL",
+              "isInverse": false,
+              "allowMultiple": true,
+              "inverseFieldId": "fbt8FV3X1as"
+            }
+          }
+        },
+        {
+          "id": "fh2bpT9ssGr",
+          "sdkName": "phone",
+          "definition": {
+            "name": "Phone",
+            "type": "phone_number",
+            "template": {}
+          }
+        },
+        {
+          "id": "f18rWTV6Qgj",
+          "sdkName": "avatar",
+          "definition": {
+            "name": "Avatar",
+            "type": "url",
+            "template": {}
+          }
+        },
+        {
+          "id": "ffKKXF9exzr",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "qaFT",
+                  "label": "Actief",
+                  "color": "purple"
+                },
+                {
+                  "value": "cLmS",
+                  "label": "Geblokkeerd",
+                  "color": "orange"
+                },
+                {
+                  "value": "cpas",
+                  "label": "Gedeactiveerd",
+                  "color": "blue"
+                },
+                {
+                  "value": "tn1k",
+                  "label": "Gearchiveerd",
+                  "color": "gray"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "f2HFE9QLVAy",
+          "sdkName": "employmentStatus",
+          "definition": {
+            "name": "Employment Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "d8TA",
+                  "label": "Inwerktraject",
+                  "color": "purple"
+                },
+                {
+                  "value": "arb3",
+                  "label": "In dienst",
+                  "color": "orange"
+                },
+                {
+                  "value": "ieBo",
+                  "label": "Uitdiensttreding",
+                  "color": "blue"
+                },
+                {
+                  "value": "7jbi",
+                  "label": "Uit dienst",
+                  "color": "gray"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fe2x5xC2do9",
+          "sdkName": "lastActive",
+          "definition": {
+            "name": "Last Active",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fkzBywx8173",
+          "sdkName": "permissionOverrides",
+          "definition": {
+            "name": "Permission Overrides",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fbf2vJdh8MK",
+          "sdkName": "notificationPreferences",
+          "definition": {
+            "name": "Notification Preferences",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "frEfjWQxEEn",
+          "sdkName": "startDate",
+          "definition": {
+            "name": "Start Date",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "fis7Rp3PsDj",
+          "sdkName": "bio",
+          "definition": {
+            "name": "Bio",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fsFgKKTSvCM",
+          "sdkName": "createdOn",
+          "definition": {
+            "name": "Created On",
+            "type": "created_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fxdppcpKibv",
+          "sdkName": "absenceRequests",
+          "definition": {
+            "name": "Absence Requests",
+            "type": "linked_record",
+            "template": {
+              "tableId": "t9uJ7E9wzHX",
+              "isInverse": true,
+              "allowMultiple": true,
+              "inverseFieldId": "f8vKkW25M83"
+            }
+          }
+        },
+        {
+          "id": "ftV4zRqaLTA",
+          "sdkName": "complaints",
+          "definition": {
+            "name": "Complaints",
+            "type": "linked_record",
+            "template": {
+              "tableId": "twDjM5xJ9W9",
+              "isInverse": true,
+              "allowMultiple": true,
+              "inverseFieldId": "fiLWCzZKLA1"
+            }
+          }
+        },
+        {
+          "id": "fkwrRpmLasY",
+          "sdkName": "complaints1",
+          "definition": {
+            "name": "Complaints (1)",
+            "type": "linked_record",
+            "template": {
+              "tableId": "twDjM5xJ9W9",
+              "isInverse": true,
+              "allowMultiple": true,
+              "inverseFieldId": "f3wfnWxDxLk"
+            }
+          }
+        },
+        {
+          "id": "fxaq4qHMSkX",
+          "sdkName": "complaints2",
+          "definition": {
+            "name": "Complaints (2)",
+            "type": "linked_record",
+            "template": {
+              "tableId": "twDjM5xJ9W9",
+              "isInverse": true,
+              "allowMultiple": true,
+              "inverseFieldId": "fm7REcS91sN"
+            }
+          }
+        },
+        {
+          "id": "fq4hcR6JHkJ",
+          "sdkName": "timeEntries",
+          "definition": {
+            "name": "Time Entries",
+            "type": "linked_record",
+            "template": {
+              "tableId": "t2M2UMkjpCW",
+              "isInverse": true,
+              "allowMultiple": true,
+              "inverseFieldId": "fcyeT7UPUoC"
+            }
+          }
+        },
+        {
+          "id": "ftHZs9TTszn",
+          "sdkName": "shifts",
+          "definition": {
+            "name": "Shifts",
+            "type": "linked_record",
+            "template": {
+              "tableId": "t4DdAqYg74Q",
+              "isInverse": true,
+              "allowMultiple": true,
+              "inverseFieldId": "fp9vBrNczFH"
+            }
+          }
+        },
+        {
+          "id": "fxgz42oNrEA",
+          "sdkName": "availability",
+          "definition": {
+            "name": "Availability",
+            "type": "linked_record",
+            "template": {
+              "tableId": "t8YTX96QVJ3",
+              "isInverse": true,
+              "allowMultiple": true,
+              "inverseFieldId": "fbfWy4kfNvE"
+            }
+          }
+        },
+        {
+          "id": "fwKWMsCj3NY",
+          "sdkName": "shiftSwaps",
+          "definition": {
+            "name": "Shift Swaps",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tw384eXJxFm",
+              "isInverse": true,
+              "allowMultiple": true,
+              "inverseFieldId": "fneL1zSzdrK"
+            }
+          }
+        },
+        {
+          "id": "ftTjg8v8mZ6",
+          "sdkName": "shiftSwaps1",
+          "definition": {
+            "name": "Shift Swaps (1)",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tw384eXJxFm",
+              "isInverse": true,
+              "allowMultiple": true,
+              "inverseFieldId": "frbkM6PuR71"
+            }
+          }
+        },
+        {
+          "id": "fwZJzTX99Fj",
+          "sdkName": "tasks",
+          "definition": {
+            "name": "Tasks",
+            "type": "linked_record",
+            "template": {
+              "tableId": "ttg3u6iT7L1",
+              "isInverse": true,
+              "allowMultiple": true,
+              "inverseFieldId": "f3PsHA1nmra"
+            }
+          }
+        },
+        {
+          "id": "fbkdzpxer9q",
+          "sdkName": "conversations",
+          "definition": {
+            "name": "Conversations",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tjtpPJSkHzV",
+              "isInverse": true,
+              "allowMultiple": true,
+              "inverseFieldId": "ftUgfSM4sCM"
+            }
+          }
+        },
+        {
+          "id": "fe91CxQiitD",
+          "sdkName": "messages",
+          "definition": {
+            "name": "Messages",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tovE59Dz8Cv",
+              "isInverse": true,
+              "allowMultiple": true,
+              "inverseFieldId": "fjHPPM9pkLH"
+            }
+          }
+        },
+        {
+          "id": "foosovmGo1x",
+          "sdkName": "notifications",
+          "definition": {
+            "name": "Notifications",
+            "type": "linked_record",
+            "template": {
+              "tableId": "to968sr4kYE",
+              "isInverse": true,
+              "allowMultiple": true,
+              "inverseFieldId": "fjnZcqTyCqt"
+            }
+          }
+        },
+        {
+          "id": "fgSso7NBMZV",
+          "sdkName": "auditAccessRequests",
+          "definition": {
+            "name": "Audit Access Requests",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tp1vLos4kS5",
+              "isInverse": true,
+              "allowMultiple": true,
+              "inverseFieldId": "f6KGNAVHstA"
+            }
+          }
+        },
+        {
+          "id": "fi8CxqE2Dfe",
+          "sdkName": "reviews",
+          "definition": {
+            "name": "Reviews",
+            "type": "linked_record",
+            "template": {
+              "tableId": "t5KrpYd45V9",
+              "isInverse": true,
+              "allowMultiple": true,
+              "inverseFieldId": "fkEbVf2F8QB"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tpS1Ghn63tC",
+      "sdkName": "accessCodes",
+      "name": "Access Codes",
+      "primaryFieldId": "fhbZCamXDkG",
+      "fields": [
+        {
+          "id": "fhbZCamXDkG",
+          "sdkName": "code",
+          "definition": {
+            "name": "Code",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fiNxLaGWjyk",
+          "sdkName": "email",
+          "definition": {
+            "name": "Email",
+            "type": "email",
+            "template": {}
+          }
+        },
+        {
+          "id": "f53tgMUWDsi",
+          "sdkName": "fullName",
+          "definition": {
+            "name": "Full Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "ftspjnSb4Hn",
+          "sdkName": "jobTitle",
+          "definition": {
+            "name": "Job Title",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fmPyHJoeSPz",
+          "sdkName": "role",
+          "definition": {
+            "name": "Role",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tbj8PKFTrCL",
+              "isInverse": false,
+              "allowMultiple": true,
+              "inverseFieldId": "frdxfi4PBc6"
+            }
+          }
+        },
+        {
+          "id": "fnzKeeBXaDE",
+          "sdkName": "department",
+          "definition": {
+            "name": "Department",
+            "type": "linked_record",
+            "template": {
+              "tableId": "toomm1cyDHm",
+              "isInverse": false,
+              "allowMultiple": true,
+              "inverseFieldId": "f4aJhBnBjsT"
+            }
+          }
+        },
+        {
+          "id": "fsqCynG8dp8",
+          "sdkName": "expiresAt",
+          "definition": {
+            "name": "Expires At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "f1Ba6ozuZwK",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "6VBv",
+                  "label": "Actief",
+                  "color": "purple"
+                },
+                {
+                  "value": "iiFS",
+                  "label": "Gebruikt",
+                  "color": "orange"
+                },
+                {
+                  "value": "7ahB",
+                  "label": "Ingetrokken",
+                  "color": "blue"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fiysJpbVWK7",
+          "sdkName": "createdBy",
+          "definition": {
+            "name": "Created By",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "foRMPfYu4J6",
+          "sdkName": "usedAt",
+          "definition": {
+            "name": "Used At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fbBUfAeuzFF",
+          "sdkName": "createdOn",
+          "definition": {
+            "name": "Created On",
+            "type": "created_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "t9uJ7E9wzHX",
+      "sdkName": "absenceRequests",
+      "name": "Absence Requests",
+      "primaryFieldId": "fitKqRYmEqK",
+      "fields": [
+        {
+          "id": "fitKqRYmEqK",
+          "sdkName": "summary",
+          "definition": {
+            "name": "Summary",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fkhhFbxtF7f",
+          "sdkName": "category",
+          "definition": {
+            "name": "Category",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "8kYU",
+                  "label": "Ziekte",
+                  "color": "purple"
+                },
+                {
+                  "value": "637q",
+                  "label": "Persoonlijke omstandigheden",
+                  "color": "orange"
+                },
+                {
+                  "value": "cjQR",
+                  "label": "Vakantie",
+                  "color": "blue"
+                },
+                {
+                  "value": "k7Kh",
+                  "label": "Verlof",
+                  "color": "gray"
+                },
+                {
+                  "value": "kHmS",
+                  "label": "Onverwachte afwezigheid",
+                  "color": "red"
+                },
+                {
+                  "value": "vSUQ",
+                  "label": "Overig",
+                  "color": "yellow"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "f8vKkW25M83",
+          "sdkName": "member",
+          "definition": {
+            "name": "Member",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tjsmbQhdYsV",
+              "isInverse": false,
+              "allowMultiple": true,
+              "inverseFieldId": "fxdppcpKibv"
+            }
+          }
+        },
+        {
+          "id": "fdE9LumvcDf",
+          "sdkName": "startDate",
+          "definition": {
+            "name": "Start Date",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "frdm1x6FgR3",
+          "sdkName": "endDate",
+          "definition": {
+            "name": "End Date",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "fdF6RNEFfmo",
+          "sdkName": "startTime",
+          "definition": {
+            "name": "Start Time",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fpccbzVqcPf",
+          "sdkName": "endTime",
+          "definition": {
+            "name": "End Time",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fbxNS4ovASa",
+          "sdkName": "explanation",
+          "definition": {
+            "name": "Explanation",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fbg2dbzhrdx",
+          "sdkName": "attachment",
+          "definition": {
+            "name": "Attachment",
+            "type": "url",
+            "template": {}
+          }
+        },
+        {
+          "id": "f1AbdXLv1Uu",
+          "sdkName": "replacement",
+          "definition": {
+            "name": "Replacement",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fwzdEDW3B1b",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "3n8x",
+                  "label": "Nieuw",
+                  "color": "purple"
+                },
+                {
+                  "value": "tBVn",
+                  "label": "In behandeling",
+                  "color": "orange"
+                },
+                {
+                  "value": "ftkK",
+                  "label": "Goedgekeurd",
+                  "color": "blue"
+                },
+                {
+                  "value": "dWut",
+                  "label": "Afgewezen",
+                  "color": "gray"
+                },
+                {
+                  "value": "p33Z",
+                  "label": "Aanvullende informatie nodig",
+                  "color": "red"
+                },
+                {
+                  "value": "pU8V",
+                  "label": "Geannuleerd",
+                  "color": "yellow"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fdtTtqEwjU1",
+          "sdkName": "response",
+          "definition": {
+            "name": "Response",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "feHTYHmajT4",
+          "sdkName": "handledBy",
+          "definition": {
+            "name": "Handled By",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "ftG2mLPCeKN",
+          "sdkName": "createdOn",
+          "definition": {
+            "name": "Created On",
+            "type": "created_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "twDjM5xJ9W9",
+      "sdkName": "complaints",
+      "name": "Complaints",
+      "primaryFieldId": "fbWpAYAnKvM",
+      "fields": [
+        {
+          "id": "fbWpAYAnKvM",
+          "sdkName": "subject",
+          "definition": {
+            "name": "Subject",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fpqU98Zk62i",
+          "sdkName": "complaintNumber",
+          "definition": {
+            "name": "Complaint Number",
+            "type": "autonumber",
+            "template": {}
+          }
+        },
+        {
+          "id": "fiLWCzZKLA1",
+          "sdkName": "submitter",
+          "definition": {
+            "name": "Submitter",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tjsmbQhdYsV",
+              "isInverse": false,
+              "allowMultiple": true,
+              "inverseFieldId": "ftV4zRqaLTA"
+            }
+          }
+        },
+        {
+          "id": "f3wfnWxDxLk",
+          "sdkName": "against",
+          "definition": {
+            "name": "Against",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tjsmbQhdYsV",
+              "isInverse": false,
+              "allowMultiple": true,
+              "inverseFieldId": "fkwrRpmLasY"
+            }
+          }
+        },
+        {
+          "id": "fm7REcS91sN",
+          "sdkName": "handler",
+          "definition": {
+            "name": "Handler",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tjsmbQhdYsV",
+              "isInverse": false,
+              "allowMultiple": true,
+              "inverseFieldId": "fxaq4qHMSkX"
+            }
+          }
+        },
+        {
+          "id": "fk6xRYTyR23",
+          "sdkName": "category",
+          "definition": {
+            "name": "Category",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "5yfX",
+                  "label": "Samenwerking",
+                  "color": "purple"
+                },
+                {
+                  "value": "3eJj",
+                  "label": "Gedrag",
+                  "color": "orange"
+                },
+                {
+                  "value": "4K9f",
+                  "label": "Communicatie",
+                  "color": "blue"
+                },
+                {
+                  "value": "qCGy",
+                  "label": "Werkverdeling",
+                  "color": "gray"
+                },
+                {
+                  "value": "tgpq",
+                  "label": "Conflict",
+                  "color": "red"
+                },
+                {
+                  "value": "pGVp",
+                  "label": "Ongewenst gedrag",
+                  "color": "yellow"
+                },
+                {
+                  "value": "8iKt",
+                  "label": "Organisatie",
+                  "color": "green"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fcBX3vXqHtH",
+          "sdkName": "description",
+          "definition": {
+            "name": "Description",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f8uCbYRxxFu",
+          "sdkName": "priority",
+          "definition": {
+            "name": "Priority",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "h5qj",
+                  "label": "Laag",
+                  "color": "purple"
+                },
+                {
+                  "value": "3Yjf",
+                  "label": "Normaal",
+                  "color": "orange"
+                },
+                {
+                  "value": "inmZ",
+                  "label": "Hoog",
+                  "color": "blue"
+                },
+                {
+                  "value": "156P",
+                  "label": "Urgent",
+                  "color": "gray"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "f2SjGqZJLtK",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "9JeC",
+                  "label": "Nieuw",
+                  "color": "purple"
+                },
+                {
+                  "value": "dK6A",
+                  "label": "In behandeling",
+                  "color": "orange"
+                },
+                {
+                  "value": "taUx",
+                  "label": "Wacht op informatie",
+                  "color": "blue"
+                },
+                {
+                  "value": "s78L",
+                  "label": "Doorgestuurd",
+                  "color": "gray"
+                },
+                {
+                  "value": "tfrh",
+                  "label": "Opgelost",
+                  "color": "red"
+                },
+                {
+                  "value": "dNdL",
+                  "label": "Afgewezen",
+                  "color": "yellow"
+                },
+                {
+                  "value": "n9pw",
+                  "label": "Gesloten",
+                  "color": "green"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "ffESTFroAYW",
+          "sdkName": "attachment",
+          "definition": {
+            "name": "Attachment",
+            "type": "url",
+            "template": {}
+          }
+        },
+        {
+          "id": "f5LJcYYF92B",
+          "sdkName": "createdOn",
+          "definition": {
+            "name": "Created On",
+            "type": "created_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fhpetxprMzg",
+          "sdkName": "complaintUpdates",
+          "definition": {
+            "name": "Complaint Updates",
+            "type": "linked_record",
+            "template": {
+              "tableId": "ttstYEmSk48",
+              "isInverse": true,
+              "allowMultiple": true,
+              "inverseFieldId": "ftCs6Qpcps6"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "ttstYEmSk48",
+      "sdkName": "complaintUpdates",
+      "name": "Complaint Updates",
+      "primaryFieldId": "feG18DfZEqk",
+      "fields": [
+        {
+          "id": "feG18DfZEqk",
+          "sdkName": "message",
+          "definition": {
+            "name": "Message",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "ftCs6Qpcps6",
+          "sdkName": "complaint",
+          "definition": {
+            "name": "Complaint",
+            "type": "linked_record",
+            "template": {
+              "tableId": "twDjM5xJ9W9",
+              "isInverse": false,
+              "allowMultiple": true,
+              "inverseFieldId": "fhpetxprMzg"
+            }
+          }
+        },
+        {
+          "id": "f2NhX8MLqWZ",
+          "sdkName": "author",
+          "definition": {
+            "name": "Author",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fbkaiPuUvBU",
+          "sdkName": "internal",
+          "definition": {
+            "name": "Internal",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "fjdThchxcWq",
+          "sdkName": "createdOn",
+          "definition": {
+            "name": "Created On",
+            "type": "created_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "t2M2UMkjpCW",
+      "sdkName": "timeEntries",
+      "name": "Time Entries",
+      "primaryFieldId": "f1Lsx96ioPr",
+      "fields": [
+        {
+          "id": "f1Lsx96ioPr",
+          "sdkName": "workDate",
+          "definition": {
+            "name": "Work Date",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "fcyeT7UPUoC",
+          "sdkName": "member",
+          "definition": {
+            "name": "Member",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tjsmbQhdYsV",
+              "isInverse": false,
+              "allowMultiple": true,
+              "inverseFieldId": "fq4hcR6JHkJ"
+            }
+          }
+        },
+        {
+          "id": "feG19zsr12k",
+          "sdkName": "start",
+          "definition": {
+            "name": "Start",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fpVH8B86U5M",
+          "sdkName": "end",
+          "definition": {
+            "name": "End",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "f6mhR9bxprd",
+          "sdkName": "breakMinutes",
+          "definition": {
+            "name": "Break Minutes",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 1
+            }
+          }
+        },
+        {
+          "id": "fcp7ozGiiVj",
+          "sdkName": "breakStartedAt",
+          "definition": {
+            "name": "Break Started At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "feTvB49YsZL",
+          "sdkName": "activity",
+          "definition": {
+            "name": "Activity",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f5tBDMiGjra",
+          "sdkName": "department",
+          "definition": {
+            "name": "Department",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fkYgeb1RLK9",
+          "sdkName": "notes",
+          "definition": {
+            "name": "Notes",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fcLogrTCnxK",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "gngr",
+                  "label": "Lopend",
+                  "color": "purple"
+                },
+                {
+                  "value": "w85e",
+                  "label": "Ingediend",
+                  "color": "orange"
+                },
+                {
+                  "value": "vVLP",
+                  "label": "Goedgekeurd",
+                  "color": "blue"
+                },
+                {
+                  "value": "mF7r",
+                  "label": "Afgekeurd",
+                  "color": "gray"
+                },
+                {
+                  "value": "r8r6",
+                  "label": "Correctie gevraagd",
+                  "color": "red"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "f8DGarthXnx",
+          "sdkName": "reviewedBy",
+          "definition": {
+            "name": "Reviewed By",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fevYHX16dwt",
+          "sdkName": "reviewNote",
+          "definition": {
+            "name": "Review Note",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f6pUZxQMyXi",
+          "sdkName": "createdOn",
+          "definition": {
+            "name": "Created On",
+            "type": "created_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "t4DdAqYg74Q",
+      "sdkName": "shifts",
+      "name": "Shifts",
+      "primaryFieldId": "fbsHt4Xguss",
+      "fields": [
+        {
+          "id": "fbsHt4Xguss",
+          "sdkName": "title",
+          "definition": {
+            "name": "Title",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fp9vBrNczFH",
+          "sdkName": "member",
+          "definition": {
+            "name": "Member",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tjsmbQhdYsV",
+              "isInverse": false,
+              "allowMultiple": true,
+              "inverseFieldId": "ftHZs9TTszn"
+            }
+          }
+        },
+        {
+          "id": "fnBpEbMEFmu",
+          "sdkName": "start",
+          "definition": {
+            "name": "Start",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fgBXoKVEfwA",
+          "sdkName": "end",
+          "definition": {
+            "name": "End",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fi5zE2PUkCt",
+          "sdkName": "department",
+          "definition": {
+            "name": "Department",
+            "type": "linked_record",
+            "template": {
+              "tableId": "toomm1cyDHm",
+              "isInverse": false,
+              "allowMultiple": true,
+              "inverseFieldId": "f6ifm8nJY4A"
+            }
+          }
+        },
+        {
+          "id": "f73T7ybaMMd",
+          "sdkName": "notes",
+          "definition": {
+            "name": "Notes",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fpctVsbwdpm",
+          "sdkName": "published",
+          "definition": {
+            "name": "Published",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "f5j938LgVSH",
+          "sdkName": "seriesId",
+          "definition": {
+            "name": "Series Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fmVgd84Gr7E",
+          "sdkName": "shiftSwaps",
+          "definition": {
+            "name": "Shift Swaps",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tw384eXJxFm",
+              "isInverse": true,
+              "allowMultiple": true,
+              "inverseFieldId": "f6v7zr5sMMV"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "t8YTX96QVJ3",
+      "sdkName": "availability",
+      "name": "Availability",
+      "primaryFieldId": "f3WafcitHtv",
+      "fields": [
+        {
+          "id": "f3WafcitHtv",
+          "sdkName": "date",
+          "definition": {
+            "name": "Date",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "fbfWy4kfNvE",
+          "sdkName": "member",
+          "definition": {
+            "name": "Member",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tjsmbQhdYsV",
+              "isInverse": false,
+              "allowMultiple": true,
+              "inverseFieldId": "fxgz42oNrEA"
+            }
+          }
+        },
+        {
+          "id": "frJ28g9x2t9",
+          "sdkName": "type",
+          "definition": {
+            "name": "Type",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "kFWK",
+                  "label": "Beschikbaar",
+                  "color": "purple"
+                },
+                {
+                  "value": "3JKa",
+                  "label": "Niet beschikbaar",
+                  "color": "orange"
+                },
+                {
+                  "value": "dJfG",
+                  "label": "Voorkeur",
+                  "color": "blue"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "ffyFsouiz7Y",
+          "sdkName": "note",
+          "definition": {
+            "name": "Note",
+            "type": "single_line_text",
+            "template": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "tw384eXJxFm",
+      "sdkName": "shiftSwaps",
+      "name": "Shift Swaps",
+      "primaryFieldId": "fsPz1AqGNQB",
+      "fields": [
+        {
+          "id": "fsPz1AqGNQB",
+          "sdkName": "reason",
+          "definition": {
+            "name": "Reason",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f6v7zr5sMMV",
+          "sdkName": "shift",
+          "definition": {
+            "name": "Shift",
+            "type": "linked_record",
+            "template": {
+              "tableId": "t4DdAqYg74Q",
+              "isInverse": false,
+              "allowMultiple": true,
+              "inverseFieldId": "fmVgd84Gr7E"
+            }
+          }
+        },
+        {
+          "id": "fneL1zSzdrK",
+          "sdkName": "requester",
+          "definition": {
+            "name": "Requester",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tjsmbQhdYsV",
+              "isInverse": false,
+              "allowMultiple": true,
+              "inverseFieldId": "fwKWMsCj3NY"
+            }
+          }
+        },
+        {
+          "id": "frbkM6PuR71",
+          "sdkName": "target",
+          "definition": {
+            "name": "Target",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tjsmbQhdYsV",
+              "isInverse": false,
+              "allowMultiple": true,
+              "inverseFieldId": "ftTjg8v8mZ6"
+            }
+          }
+        },
+        {
+          "id": "fiev7ESCSHm",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "wuPE",
+                  "label": "Aangevraagd",
+                  "color": "purple"
+                },
+                {
+                  "value": "gzye",
+                  "label": "Goedgekeurd",
+                  "color": "orange"
+                },
+                {
+                  "value": "6i8u",
+                  "label": "Afgewezen",
+                  "color": "blue"
+                },
+                {
+                  "value": "e83Q",
+                  "label": "Geannuleerd",
+                  "color": "gray"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "f9EXWJbqwhK",
+          "sdkName": "createdOn",
+          "definition": {
+            "name": "Created On",
+            "type": "created_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "ttg3u6iT7L1",
+      "sdkName": "tasks",
+      "name": "Tasks",
+      "primaryFieldId": "fnUsuwZBYp2",
+      "fields": [
+        {
+          "id": "fnUsuwZBYp2",
+          "sdkName": "title",
+          "definition": {
+            "name": "Title",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fqhaofU6pqE",
+          "sdkName": "description",
+          "definition": {
+            "name": "Description",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f3PsHA1nmra",
+          "sdkName": "assignee",
+          "definition": {
+            "name": "Assignee",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tjsmbQhdYsV",
+              "isInverse": false,
+              "allowMultiple": true,
+              "inverseFieldId": "fwZJzTX99Fj"
+            }
+          }
+        },
+        {
+          "id": "fsaaqjJLeUD",
+          "sdkName": "createdBy",
+          "definition": {
+            "name": "Created By",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fxxFFFGLQgR",
+          "sdkName": "dueDate",
+          "definition": {
+            "name": "Due Date",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "f9NFrvit5u5",
+          "sdkName": "priority",
+          "definition": {
+            "name": "Priority",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "rZ8N",
+                  "label": "Laag",
+                  "color": "purple"
+                },
+                {
+                  "value": "rTFq",
+                  "label": "Normaal",
+                  "color": "orange"
+                },
+                {
+                  "value": "j5at",
+                  "label": "Hoog",
+                  "color": "blue"
+                },
+                {
+                  "value": "vfWi",
+                  "label": "Urgent",
+                  "color": "gray"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fjXfNLq8sMK",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "4CAd",
+                  "label": "Open",
+                  "color": "purple"
+                },
+                {
+                  "value": "w8Ke",
+                  "label": "Bezig",
+                  "color": "orange"
+                },
+                {
+                  "value": "k1Sp",
+                  "label": "Ter controle",
+                  "color": "blue"
+                },
+                {
+                  "value": "fHrM",
+                  "label": "Afgerond",
+                  "color": "gray"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "feRpqoJyH29",
+          "sdkName": "project",
+          "definition": {
+            "name": "Project",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fnNbEN66pdY",
+          "sdkName": "createdOn",
+          "definition": {
+            "name": "Created On",
+            "type": "created_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "ttjxBe16xZf",
+      "sdkName": "documents",
+      "name": "Documents",
+      "primaryFieldId": "foSyEDwFymz",
+      "fields": [
+        {
+          "id": "foSyEDwFymz",
+          "sdkName": "title",
+          "definition": {
+            "name": "Title",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fhe94dCQd2z",
+          "sdkName": "category",
+          "definition": {
+            "name": "Category",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "6kAS",
+                  "label": "Staffhandboek",
+                  "color": "purple"
+                },
+                {
+                  "value": "hXzV",
+                  "label": "Kennisbank",
+                  "color": "orange"
+                },
+                {
+                  "value": "iF6o",
+                  "label": "Reglement",
+                  "color": "blue"
+                },
+                {
+                  "value": "8Jx5",
+                  "label": "Procedure",
+                  "color": "gray"
+                },
+                {
+                  "value": "kiLp",
+                  "label": "Formulier",
+                  "color": "red"
+                },
+                {
+                  "value": "qHx4",
+                  "label": "Training",
+                  "color": "yellow"
+                },
+                {
+                  "value": "vP4F",
+                  "label": "Beleid",
+                  "color": "green"
+                },
+                {
+                  "value": "8gY8",
+                  "label": "Verslag",
+                  "color": "pink"
+                },
+                {
+                  "value": "1kXD",
+                  "label": "Overig",
+                  "color": "lime"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "f1SbtnaanMs",
+          "sdkName": "content",
+          "definition": {
+            "name": "Content",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f3bHn2kMxUj",
+          "sdkName": "file",
+          "definition": {
+            "name": "File",
+            "type": "url",
+            "template": {}
+          }
+        },
+        {
+          "id": "ffDVM5To5fQ",
+          "sdkName": "minRank",
+          "definition": {
+            "name": "Min Rank",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 1
+            }
+          }
+        },
+        {
+          "id": "firNwfFDQ9J",
+          "sdkName": "updatedBy",
+          "definition": {
+            "name": "Updated By",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fc2ofu3UWmt",
+          "sdkName": "createdOn",
+          "definition": {
+            "name": "Created On",
+            "type": "created_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tgmZXc17W2J",
+      "sdkName": "announcements",
+      "name": "Announcements",
+      "primaryFieldId": "fjSq1szW26r",
+      "fields": [
+        {
+          "id": "fjSq1szW26r",
+          "sdkName": "title",
+          "definition": {
+            "name": "Title",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "ftXjZydkHxc",
+          "sdkName": "body",
+          "definition": {
+            "name": "Body",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f2MS7CnuWgE",
+          "sdkName": "author",
+          "definition": {
+            "name": "Author",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f4J3JNoTdXS",
+          "sdkName": "pinned",
+          "definition": {
+            "name": "Pinned",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "f7KrMhrdMSZ",
+          "sdkName": "createdOn",
+          "definition": {
+            "name": "Created On",
+            "type": "created_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tjtpPJSkHzV",
+      "sdkName": "conversations",
+      "name": "Conversations",
+      "primaryFieldId": "f9e7jBD4j1Z",
+      "fields": [
+        {
+          "id": "f9e7jBD4j1Z",
+          "sdkName": "title",
+          "definition": {
+            "name": "Title",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "ftUgfSM4sCM",
+          "sdkName": "participants",
+          "definition": {
+            "name": "Participants",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tjsmbQhdYsV",
+              "isInverse": false,
+              "allowMultiple": true,
+              "inverseFieldId": "fbkdzpxer9q"
+            }
+          }
+        },
+        {
+          "id": "fjosp44ZEgn",
+          "sdkName": "isGroup",
+          "definition": {
+            "name": "Is Group",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "f1WVS75QHSx",
+          "sdkName": "lastMessageAt",
+          "definition": {
+            "name": "Last Message At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "f29pDCUp1Te",
+          "sdkName": "messages",
+          "definition": {
+            "name": "Messages",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tovE59Dz8Cv",
+              "isInverse": true,
+              "allowMultiple": true,
+              "inverseFieldId": "fh2kKkqJzmf"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tovE59Dz8Cv",
+      "sdkName": "messages",
+      "name": "Messages",
+      "primaryFieldId": "fgYuixevCE4",
+      "fields": [
+        {
+          "id": "fgYuixevCE4",
+          "sdkName": "body",
+          "definition": {
+            "name": "Body",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fh2kKkqJzmf",
+          "sdkName": "conversation",
+          "definition": {
+            "name": "Conversation",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tjtpPJSkHzV",
+              "isInverse": false,
+              "allowMultiple": true,
+              "inverseFieldId": "f29pDCUp1Te"
+            }
+          }
+        },
+        {
+          "id": "fjHPPM9pkLH",
+          "sdkName": "sender",
+          "definition": {
+            "name": "Sender",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tjsmbQhdYsV",
+              "isInverse": false,
+              "allowMultiple": true,
+              "inverseFieldId": "fe91CxQiitD"
+            }
+          }
+        },
+        {
+          "id": "f5XgNqEiegt",
+          "sdkName": "createdOn",
+          "definition": {
+            "name": "Created On",
+            "type": "created_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "to968sr4kYE",
+      "sdkName": "notifications",
+      "name": "Notifications",
+      "primaryFieldId": "fsdboJFpf4u",
+      "fields": [
+        {
+          "id": "fsdboJFpf4u",
+          "sdkName": "title",
+          "definition": {
+            "name": "Title",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fsVaj6Q8PnA",
+          "sdkName": "body",
+          "definition": {
+            "name": "Body",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fjnZcqTyCqt",
+          "sdkName": "member",
+          "definition": {
+            "name": "Member",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tjsmbQhdYsV",
+              "isInverse": false,
+              "allowMultiple": true,
+              "inverseFieldId": "foosovmGo1x"
+            }
+          }
+        },
+        {
+          "id": "fmaxGprdiXB",
+          "sdkName": "type",
+          "definition": {
+            "name": "Type",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f496Tev7V41",
+          "sdkName": "read",
+          "definition": {
+            "name": "Read",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "fqxEBXHYYQk",
+          "sdkName": "link",
+          "definition": {
+            "name": "Link",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f6qPR3HWjCb",
+          "sdkName": "createdOn",
+          "definition": {
+            "name": "Created On",
+            "type": "created_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tqvV9aaT6xr",
+      "sdkName": "auditLogs",
+      "name": "Audit Logs",
+      "primaryFieldId": "f5UJNFRBhVf",
+      "fields": [
+        {
+          "id": "f5UJNFRBhVf",
+          "sdkName": "action",
+          "definition": {
+            "name": "Action",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f1WDm8ocaom",
+          "sdkName": "category",
+          "definition": {
+            "name": "Category",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "cD7T",
+                  "label": "Gebruikers",
+                  "color": "purple"
+                },
+                {
+                  "value": "jSQW",
+                  "label": "Rechten",
+                  "color": "orange"
+                },
+                {
+                  "value": "wP9n",
+                  "label": "Toegangscodes",
+                  "color": "blue"
+                },
+                {
+                  "value": "3zoc",
+                  "label": "Afwezigheid",
+                  "color": "gray"
+                },
+                {
+                  "value": "8EC4",
+                  "label": "Klachten",
+                  "color": "red"
+                },
+                {
+                  "value": "8xoY",
+                  "label": "Uren",
+                  "color": "yellow"
+                },
+                {
+                  "value": "4YFM",
+                  "label": "Roosters",
+                  "color": "green"
+                },
+                {
+                  "value": "27uH",
+                  "label": "Taken",
+                  "color": "pink"
+                },
+                {
+                  "value": "gG1Z",
+                  "label": "Documenten",
+                  "color": "lime"
+                },
+                {
+                  "value": "xhLK",
+                  "label": "Communicatie",
+                  "color": "tangerine"
+                },
+                {
+                  "value": "h1Jp",
+                  "label": "Gesprekken",
+                  "color": "emerald"
+                },
+                {
+                  "value": "hMWk",
+                  "label": "Besluiten",
+                  "color": "sky"
+                },
+                {
+                  "value": "sXrj",
+                  "label": "Instellingen",
+                  "color": "teal"
+                },
+                {
+                  "value": "bfnX",
+                  "label": "Auditinzage",
+                  "color": "indigo"
+                },
+                {
+                  "value": "krKu",
+                  "label": "Systeem",
+                  "color": "cyan"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fvWCkQwdewv",
+          "sdkName": "actor",
+          "definition": {
+            "name": "Actor",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "frjYzBrzLmE",
+          "sdkName": "actorId",
+          "definition": {
+            "name": "Actor Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fweaCp1uuVD",
+          "sdkName": "entity",
+          "definition": {
+            "name": "Entity",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fhuCX2EuUv8",
+          "sdkName": "details",
+          "definition": {
+            "name": "Details",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fiX1fgghG59",
+          "sdkName": "createdOn",
+          "definition": {
+            "name": "Created On",
+            "type": "created_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tp1vLos4kS5",
+      "sdkName": "auditAccessRequests",
+      "name": "Audit Access Requests",
+      "primaryFieldId": "fgqpDETvUX7",
+      "fields": [
+        {
+          "id": "fgqpDETvUX7",
+          "sdkName": "reason",
+          "definition": {
+            "name": "Reason",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f6KGNAVHstA",
+          "sdkName": "member",
+          "definition": {
+            "name": "Member",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tjsmbQhdYsV",
+              "isInverse": false,
+              "allowMultiple": true,
+              "inverseFieldId": "fgSso7NBMZV"
+            }
+          }
+        },
+        {
+          "id": "f3zv2hdGBoj",
+          "sdkName": "categories",
+          "definition": {
+            "name": "Categories",
+            "type": "multiple_select",
+            "template": {
+              "options": [
+                {
+                  "value": "eL4Z",
+                  "label": "Gebruikers",
+                  "color": "purple"
+                },
+                {
+                  "value": "ijRm",
+                  "label": "Rechten",
+                  "color": "orange"
+                },
+                {
+                  "value": "hd2Y",
+                  "label": "Toegangscodes",
+                  "color": "blue"
+                },
+                {
+                  "value": "ufHm",
+                  "label": "Afwezigheid",
+                  "color": "gray"
+                },
+                {
+                  "value": "igVx",
+                  "label": "Klachten",
+                  "color": "red"
+                },
+                {
+                  "value": "82PL",
+                  "label": "Uren",
+                  "color": "yellow"
+                },
+                {
+                  "value": "kPeP",
+                  "label": "Roosters",
+                  "color": "green"
+                },
+                {
+                  "value": "k4mA",
+                  "label": "Taken",
+                  "color": "pink"
+                },
+                {
+                  "value": "xzys",
+                  "label": "Documenten",
+                  "color": "lime"
+                },
+                {
+                  "value": "8pmJ",
+                  "label": "Communicatie",
+                  "color": "tangerine"
+                },
+                {
+                  "value": "pHBv",
+                  "label": "Gesprekken",
+                  "color": "emerald"
+                },
+                {
+                  "value": "xkXD",
+                  "label": "Besluiten",
+                  "color": "sky"
+                },
+                {
+                  "value": "cuc3",
+                  "label": "Instellingen",
+                  "color": "teal"
+                },
+                {
+                  "value": "qZHW",
+                  "label": "Systeem",
+                  "color": "indigo"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "f7fFVd474ec",
+          "sdkName": "periodStart",
+          "definition": {
+            "name": "Period Start",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "fwcvCc1K9H6",
+          "sdkName": "periodEnd",
+          "definition": {
+            "name": "Period End",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "fvX3UmETAZG",
+          "sdkName": "explanation",
+          "definition": {
+            "name": "Explanation",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "ft7Rp57VXc1",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "41Ax",
+                  "label": "In behandeling",
+                  "color": "purple"
+                },
+                {
+                  "value": "9Jso",
+                  "label": "Goedgekeurd",
+                  "color": "orange"
+                },
+                {
+                  "value": "1aqL",
+                  "label": "Afgewezen",
+                  "color": "blue"
+                },
+                {
+                  "value": "cxCd",
+                  "label": "Ingetrokken",
+                  "color": "gray"
+                },
+                {
+                  "value": "uVyD",
+                  "label": "Verlopen",
+                  "color": "red"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fr7NmVpxB1Y",
+          "sdkName": "decisionNote",
+          "definition": {
+            "name": "Decision Note",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fkdCt9nXUMC",
+          "sdkName": "decidedBy",
+          "definition": {
+            "name": "Decided By",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "feBaBnXAybh",
+          "sdkName": "accessExpiresAt",
+          "definition": {
+            "name": "Access Expires At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fnkv6wc91uX",
+          "sdkName": "createdOn",
+          "definition": {
+            "name": "Created On",
+            "type": "created_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "t5KrpYd45V9",
+      "sdkName": "reviews",
+      "name": "Reviews",
+      "primaryFieldId": "fq1CcckX2Ah",
+      "fields": [
+        {
+          "id": "fq1CcckX2Ah",
+          "sdkName": "title",
+          "definition": {
+            "name": "Title",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fkEbVf2F8QB",
+          "sdkName": "member",
+          "definition": {
+            "name": "Member",
+            "type": "linked_record",
+            "template": {
+              "tableId": "tjsmbQhdYsV",
+              "isInverse": false,
+              "allowMultiple": true,
+              "inverseFieldId": "fi8CxqE2Dfe"
+            }
+          }
+        },
+        {
+          "id": "fgMXsWf4EZW",
+          "sdkName": "type",
+          "definition": {
+            "name": "Type",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "4pE8",
+                  "label": "Functioneringsgesprek",
+                  "color": "purple"
+                },
+                {
+                  "value": "vk59",
+                  "label": "Evaluatie",
+                  "color": "orange"
+                },
+                {
+                  "value": "gUpT",
+                  "label": "Begeleiding",
+                  "color": "blue"
+                },
+                {
+                  "value": "6Rte",
+                  "label": "Gespreksaanvraag",
+                  "color": "gray"
+                },
+                {
+                  "value": "6qSk",
+                  "label": "Waarschuwing",
+                  "color": "red"
+                },
+                {
+                  "value": "1xBs",
+                  "label": "Incident",
+                  "color": "yellow"
+                },
+                {
+                  "value": "wNbu",
+                  "label": "Compliment",
+                  "color": "green"
+                },
+                {
+                  "value": "am77",
+                  "label": "Training",
+                  "color": "pink"
+                },
+                {
+                  "value": "hCtf",
+                  "label": "Functiewijziging",
+                  "color": "lime"
+                },
+                {
+                  "value": "aTEU",
+                  "label": "Uitdiensttreding",
+                  "color": "tangerine"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fr2XuXz9M2H",
+          "sdkName": "date",
+          "definition": {
+            "name": "Date",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "fhUmY8gTfhB",
+          "sdkName": "notes",
+          "definition": {
+            "name": "Notes",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f6P4q3BCKNB",
+          "sdkName": "author",
+          "definition": {
+            "name": "Author",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fwLvteAwWz4",
+          "sdkName": "confidential",
+          "definition": {
+            "name": "Confidential",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "fhwMj3kSrL2",
+          "sdkName": "createdOn",
+          "definition": {
+            "name": "Created On",
+            "type": "created_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tvDQkXDNkxx",
+      "sdkName": "decisions",
+      "name": "Decisions",
+      "primaryFieldId": "foRxXt277y8",
+      "fields": [
+        {
+          "id": "foRxXt277y8",
+          "sdkName": "title",
+          "definition": {
+            "name": "Title",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fdi6TW1bvy3",
+          "sdkName": "description",
+          "definition": {
+            "name": "Description",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f4aDLAsWPve",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "bHuY",
+                  "label": "Concept",
+                  "color": "purple"
+                },
+                {
+                  "value": "eUAu",
+                  "label": "In bespreking",
+                  "color": "orange"
+                },
+                {
+                  "value": "cSVZ",
+                  "label": "Goedgekeurd",
+                  "color": "blue"
+                },
+                {
+                  "value": "2b7s",
+                  "label": "Afgewezen",
+                  "color": "gray"
+                },
+                {
+                  "value": "wu5p",
+                  "label": "Gearchiveerd",
+                  "color": "red"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fnCUxYi6dDD",
+          "sdkName": "meetingDate",
+          "definition": {
+            "name": "Meeting Date",
+            "type": "date",
+            "template": {
+              "dateFormat": "local"
+            }
+          }
+        },
+        {
+          "id": "fbEVDgah6nJ",
+          "sdkName": "outcome",
+          "definition": {
+            "name": "Outcome",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fv7sJ7K4HM7",
+          "sdkName": "author",
+          "definition": {
+            "name": "Author",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "facti3NUfQV",
+          "sdkName": "createdOn",
+          "definition": {
+            "name": "Created On",
+            "type": "created_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tu1rAsbuwRA",
+      "sdkName": "settings",
+      "name": "Settings",
+      "primaryFieldId": "fe9SKKxtQrM",
+      "fields": [
+        {
+          "id": "fe9SKKxtQrM",
+          "sdkName": "key",
+          "definition": {
+            "name": "Key",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f3YwbsmXNSp",
+          "sdkName": "value",
+          "definition": {
+            "name": "Value",
+            "type": "long_text",
+            "template": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "tnLPKqupqpa",
+      "sdkName": "pages",
+      "name": "Pages",
+      "primaryFieldId": "foxhotskKBU",
+      "fields": [
+        {
+          "id": "foxhotskKBU",
+          "sdkName": "title",
+          "definition": {
+            "name": "Title",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f9iK2ty76KR",
+          "sdkName": "content",
+          "definition": {
+            "name": "Content",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fwcpJJLQe6y",
+          "sdkName": "minRank",
+          "definition": {
+            "name": "Min Rank",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 1
+            }
+          }
+        },
+        {
+          "id": "f7k2CvSRjpM",
+          "sdkName": "published",
+          "definition": {
+            "name": "Published",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "foATnXmZ6LE",
+          "sdkName": "sortOrder",
+          "definition": {
+            "name": "Sort Order",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 1
+            }
+          }
+        },
+        {
+          "id": "fc4gAcmrckJ",
+          "sdkName": "history",
+          "definition": {
+            "name": "History",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "foHPnssoex4",
+          "sdkName": "updatedBy",
+          "definition": {
+            "name": "Updated By",
+            "type": "single_line_text",
+            "template": {}
+          }
+        }
+      ]
+    }
+  ]
 }
